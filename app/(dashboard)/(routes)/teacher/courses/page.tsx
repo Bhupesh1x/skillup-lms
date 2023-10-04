@@ -1,9 +1,12 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function CoursesPage() {
   return (
     <div>
-      <h1>CoursesPage</h1>
+      <Link href="/teacher/create">
+        <Button>New Course</Button>
+      </Link>
     </div>
   );
 }

@@ -10,7 +10,9 @@ function AppLayout({ children }: { children: React.ReactNode }) {
       <aside className="h-full hidden md:flex flex-col inset-y-0 z-50 md:w-[25%] lg:w-[17%]">
         <Sidebar />
       </aside>
-      <main className="w-full md:w-[75%] lg:w-[83%] mt-[80px]">{children}</main>
+      <main className="w-full md:w-[75%] lg:w-[83%] mt-[80px] p-6">
+        {children}
+      </main>
     </div>
   );
 }
