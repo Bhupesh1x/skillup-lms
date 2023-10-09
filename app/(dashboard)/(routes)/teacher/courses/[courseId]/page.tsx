@@ -14,6 +14,7 @@ import ImageForm from "./_components/ImageForm";
 import CategoryForm from "./_components/CategoryForm";
 import PriceForm from "./_components/PriceForm";
 import AttachmentForm from "./_components/AttachmentForm";
+import ChaptersForm from "./_components/ChaptersForm";
 
 async function CourseDetailsPage({ params }: { params: { courseId: string } }) {
   const { userId } = auth();
@@ -25,11 +26,17 @@ async function CourseDetailsPage({ params }: { params: { courseId: string } }) {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
+      userId,
     },
     include: {
       attachments: {
         orderBy: {
           createdAt: "desc",
+        },
+      },
+      chapters: {
+        orderBy: {
+          createdAt: "asc",
         },
       },
     },
@@ -51,6 +58,7 @@ async function CourseDetailsPage({ params }: { params: { courseId: string } }) {
     course.imageurl,
     course.price,
     course.categoryId,
+    course.chapters?.some((chapter) => chapter?.isPublished),
   ];
 
   const totalFields = requiredFields.length;
@@ -84,7 +92,9 @@ async function CourseDetailsPage({ params }: { params: { courseId: string } }) {
             <IconBadge icon={ListChecks} />
             <h2 className="text-xl font-medium">Course Chapters</h2>
           </div>
-          <div>TODO: Chapters</div>
+          <div>
+            <ChaptersForm initialData={course} />
+          </div>
           <div className="flex items-center gap-x-2">
             <IconBadge icon={CircleDollarSign} />
             <h2 className="text-xl font-medium">Sell Your Course</h2>
