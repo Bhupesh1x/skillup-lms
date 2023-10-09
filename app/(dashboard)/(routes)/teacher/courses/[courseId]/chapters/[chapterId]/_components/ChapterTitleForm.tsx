@@ -25,6 +25,7 @@ type Props = {
     title: string;
     id: string;
   };
+  courseId: string;
 };
 
 const formSchema = z.object({
@@ -33,7 +34,7 @@ const formSchema = z.object({
   }),
 });
 
-function TitleForm({ initialData }: Props) {
+function ChapterTitleForm({ initialData, courseId }: Props) {
   const [isEditing, setIsEditing] = useState(false);
 
   const toogleEdit = () => setIsEditing((current) => !current);
@@ -50,10 +51,13 @@ function TitleForm({ initialData }: Props) {
   const { isSubmitting, isValid } = form.formState;
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const notify = toast.loading("Updating Course...");
+    const notify = toast.loading("Updating Chapter...");
     try {
-      await axios.patch(`/api/courses/${initialData.id}`, values);
-      toast.success("Course Updated", {
+      await axios.patch(
+        `/api/courses/${courseId}/chapters/${initialData.id}`,
+        values
+      );
+      toast.success("Chapter Updated", {
         id: notify,
       });
       toogleEdit();
@@ -68,7 +72,7 @@ function TitleForm({ initialData }: Props) {
   return (
     <div className="p-4 bg-slate-100 rounded-md border mt-6">
       <div className="flex font-medium items-center justify-between">
-        <h1>Course Title</h1>
+        <h1>Chapter Title</h1>
         <Button onClick={toogleEdit} variant="ghost">
           {isEditing ? (
             "Cancel"
@@ -94,7 +98,7 @@ function TitleForm({ initialData }: Props) {
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="eg. 'Advanced Ai Course'"
+                      placeholder="eg. 'Introduction to the course'"
                       {...field}
                     />
                   </FormControl>
@@ -116,4 +120,4 @@ function TitleForm({ initialData }: Props) {
   );
 }
 
-export default TitleForm;
+export default ChapterTitleForm;
