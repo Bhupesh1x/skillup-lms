@@ -64,7 +64,7 @@ async function CourseDetailsPage({ params }: { params: { courseId: string } }) {
   const totalFields = requiredFields.length;
   const completedFields = requiredFields.filter(Boolean).length;
   return (
-    <div>
+    <div className="pb-6">
       <h1 className="text-2xl font-medium">Course Setup</h1>
       <p className="text-sm text-slate-700 font-medium mt-2">
         Complete all fields ({completedFields}/{totalFields})
