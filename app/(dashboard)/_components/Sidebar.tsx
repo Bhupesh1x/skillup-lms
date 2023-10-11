@@ -3,7 +3,7 @@ import SidebarMenus from "./SidebarMenus";
 
 function Sidebar() {
   return (
-    <div className="overflow-y-auto h-full border-r shadow">
+    <div className="overflow-y-auto h-full border-r shadow min-h-screen">
       <Image
         height={160}
         width={160}
