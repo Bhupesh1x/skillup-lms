@@ -77,7 +77,7 @@ function ChaptersForm({ initialData }: Props) {
           ) : (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Create Chapter
+              Add a chapter
             </>
           )}
         </Button>
