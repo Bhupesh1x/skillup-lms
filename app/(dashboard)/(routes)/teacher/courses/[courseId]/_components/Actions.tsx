@@ -1,12 +1,16 @@
 "use client";
 
-import { ConfirmModal } from "@/components/modals/ConfirmModal";
-import { Button } from "@/components/ui/button";
-import axios from "axios";
-import { TrashIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import axios from "axios";
 import toast from "react-hot-toast";
+
+import { TrashIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+import { useConfettiStore } from "@/hooks/use-confetti-store";
+import { ConfirmModal } from "@/components/modals/ConfirmModal";
 
 type Props = {
   disabled: boolean;
@@ -17,6 +21,7 @@ type Props = {
 function Actions({ disabled, courseId, isPublished }: Props) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const confetti = useConfettiStore();
 
   const onPublish = async () => {
     const notify = toast.loading(
@@ -33,6 +38,10 @@ function Actions({ disabled, courseId, isPublished }: Props) {
       toast.success(`Course ${isPublished ? "Unpublished" : "published"}`, {
         id: notify,
       });
+
+      if (!isPublished) {
+        confetti.onOpen();
+      }
 
       router.refresh();
     } catch (error: any) {
