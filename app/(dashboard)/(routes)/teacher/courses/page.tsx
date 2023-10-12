@@ -1,12 +1,28 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { db } from "@/lib/db";
+import { columns } from "./_components/columns";
+import { DataTable } from "./_components/DataTable";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-function CoursesPage() {
+async function CoursesPage() {
+  const { userId } = auth();
+
+  if (!userId) {
+    return redirect("/");
+  }
+
+  const courses = await db.course.findMany({
+    where: {
+      userId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
   return (
     <div>
-      <Link href="/teacher/create">
-        <Button>New Course</Button>
-      </Link>
+      <DataTable columns={columns} data={courses} />
     </div>
   );
 }
