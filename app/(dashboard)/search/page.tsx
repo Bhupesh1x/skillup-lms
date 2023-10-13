@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import Categories from "./_components/Categories";
+import SearchInput from "@/components/shared/SearchInput";
 
 async function page() {
   const categories = await db.category.findMany({
@@ -9,9 +10,12 @@ async function page() {
   });
 
   return (
-    <div>
+    <>
+      <div className="pb-6 md:mb-0 block md:hidden">
+        <SearchInput />
+      </div>
       <Categories items={categories} />
-    </div>
+    </>
   );
 }
 
