@@ -1,7 +1,10 @@
 import { db } from "@/lib/db";
+
 import { auth } from "@clerk/nextjs";
-import { Chapter, Course, UserProgress } from "@prisma/client";
+
 import { redirect } from "next/navigation";
+import { Chapter, Course, UserProgress } from "@prisma/client";
+
 import CourseSidebarItem from "./CourseSidebarItem";
 
 type Props = {

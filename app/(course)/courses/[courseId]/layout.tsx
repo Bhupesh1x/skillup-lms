@@ -37,7 +37,7 @@ async function CourseLayout({
           },
         },
         orderBy: {
-          createdAt: "desc",
+          createdAt: "asc",
         },
       },
     },
