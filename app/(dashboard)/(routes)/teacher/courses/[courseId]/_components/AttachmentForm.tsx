@@ -75,7 +75,7 @@ function AttachmentForm({ initialData }: Props) {
       {isEditing ? (
         <>
           <FileUpload
-            endpoint="courseImage"
+            endpoint="courseAttachment"
             onChange={(url) => {
               if (url) {
                 onSubmit({ url });

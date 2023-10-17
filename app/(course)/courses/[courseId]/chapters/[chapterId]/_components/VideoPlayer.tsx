@@ -42,7 +42,7 @@ function VideoPlayer({
         <MuxPlayer
           playbackId={playbackId}
           title={title}
-          className={`${!isReady && "hidden"}`}
+          className={`${!isReady && "hidden"} h-full w-full`}
           onCanPlay={() => setIsReady(true)}
           onEnded={() => {}}
           autoPlay
