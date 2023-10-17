@@ -64,7 +64,7 @@ export async function getChapter({
 
       nextChapter = await db.chapter.findFirst({
         where: {
-          id: chapterId,
+          courseId,
           isPublished: true,
           createdAt: {
             gte: chapter?.createdAt,
