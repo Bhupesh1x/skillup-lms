@@ -1,8 +1,9 @@
 "use client";
 
-import MuxPlayer from "@mux/mux-player-react";
-import { Loader2, Lock } from "lucide-react";
 import { useState } from "react";
+
+import { Loader2, Lock } from "lucide-react";
+import MuxPlayer from "@mux/mux-player-react";
 
 type Props = {
   chapterId: string;

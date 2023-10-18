@@ -78,18 +78,20 @@ async function ChapterDetailsPage({
         <div className="p-4">
           <Preview value={chapter?.description!} />
         </div>
-        {!!attachments &&
-          attachments.map((attachment) => (
-            <a
-              target="_blank"
-              href={attachment.url}
-              key={attachment.id}
-              className="flex items-center p-3 w-full border bg-sky-200 text-sky-700 gap-2 rounded-md hover:underline"
-            >
-              <File className="h-4 w-4" />
-              <p className="line-clamp-1">{attachment.name}</p>
-            </a>
-          ))}
+        <div className="px-4">
+          {!!attachments &&
+            attachments.map((attachment) => (
+              <a
+                target="_blank"
+                href={attachment.url}
+                key={attachment.id}
+                className="flex items-center p-3 w-full border bg-sky-200 text-sky-700 gap-2 rounded-md hover:underline"
+              >
+                <File className="h-4 w-4" />
+                <p className="line-clamp-1">{attachment.name}</p>
+              </a>
+            ))}
+        </div>
       </div>
     </div>
   );

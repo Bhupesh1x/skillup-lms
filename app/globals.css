@@ -87,6 +87,6 @@ body,
 
 .ql-editor {
   padding: 0 !important;
-  min-height: 4rem;
+  min-height: 2rem;
 }
 @import "~@uploadthing/react/styles.css";
