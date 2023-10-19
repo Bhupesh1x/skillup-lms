@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const bannerVariants = cva(
-  "border flex items-center w-full text-sm p-4 text-center",
+  "border flex items-center w-full text-sm p-4 text-center rounded-md",
   {
     variants: {
       variant: {

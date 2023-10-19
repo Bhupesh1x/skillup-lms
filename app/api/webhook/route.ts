@@ -25,9 +25,6 @@ export async function POST(req: Request) {
   const userId = session?.metadata?.userId;
   const courseId = session?.metadata?.courseId;
 
-  console.log("Hii ->>>>>>>>>>");
-  console.log("Hii ->>>>>>>>>>, event.type", event.type);
-
   if (event.type === "checkout.session.completed") {
     if (!userId || !courseId) {
       return new NextResponse(`Webhook Error: Missing metadata`, {
@@ -35,16 +32,12 @@ export async function POST(req: Request) {
       });
     }
 
-    console.log("creating ->>>>>>>>>>, event.type");
-
     await db.purchase.create({
       data: {
         courseId: courseId,
         userId: userId,
       },
     });
-
-    console.log("created ->>>>>>>>>>, event.type");
   } else {
     return new NextResponse(
       `Webhook Error: Unhandled event type ${event.type}`,

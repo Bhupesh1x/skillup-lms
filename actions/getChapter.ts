@@ -64,14 +64,14 @@ export async function getChapter({
 
       nextChapter = await db.chapter.findFirst({
         where: {
-          courseId,
+          courseId: courseId,
           isPublished: true,
-          createdAt: {
-            gte: chapter?.createdAt,
+          position: {
+            gt: chapter?.position!,
           },
         },
         orderBy: {
-          createdAt: "asc",
+          position: "asc",
         },
       });
     }

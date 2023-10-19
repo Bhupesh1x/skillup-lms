@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
 import { CheckCircle, Lock, PlayCircle } from "lucide-react";
@@ -33,19 +34,22 @@ function CourseSidebarItem({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-x-2 text-slate-500 text-sm font-medium pl-6 transition-all hover:text-slate-600 hover:bg-slate-500/20 ${
+      className={cn(
+        "flex items-center gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
         isActive &&
-        "text-slate-700 bg-slate-200/20 hover:text-slate-700 hover:bg-slate-200/20"
-      } ${isCompleted && "text-emerald-700 hover:text-emerald-700"} ${
+          "text-slate-700 bg-slate-200/20 hover:bg-slate-200/20 hover:text-slate-700",
+        isCompleted && "text-emerald-700 hover:text-emerald-700",
         isCompleted && isActive && "bg-emerald-200/20"
-      }`}
+      )}
     >
       <div className="md:flex items-center gap-x-2 py-4">
         <Icon
           size={22}
-          className={`text-slate-500 ${isActive && "text-slate-700"} ${
+          className={cn(
+            "text-slate-500",
+            isActive && "text-slate-700",
             isCompleted && "text-emerald-700"
-          }`}
+          )}
         />
         {label}
       </div>

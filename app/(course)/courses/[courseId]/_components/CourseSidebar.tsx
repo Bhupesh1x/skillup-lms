@@ -35,8 +35,8 @@ async function CourseSidebar({ course, progress }: Props) {
 
   return (
     <div className="h-full borser-r shadow flex flex-col overscroll-y-auto min-h-screen">
-      <div className="p-8 flex flex-col border-b">
-        <h1 className="font-semibold mx-auto">{course.title}</h1>
+      <div className="p-8 flex flex-col border-b text-center">
+        <h1 className="font-semibold">{course.title}</h1>
         {purchase && (
           <div className="mt-10">
             <CourseProgress

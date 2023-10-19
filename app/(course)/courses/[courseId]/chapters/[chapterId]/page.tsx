@@ -9,6 +9,7 @@ import { Preview } from "@/components/shared/preview";
 import VideoPlayer from "./_components/VideoPlayer";
 import CourseEnrollButton from "./_components/CourseEnrollButton";
 import { File } from "lucide-react";
+import CourseProgressButton from "../../_components/CourseProgressButton";
 
 async function ChapterDetailsPage({
   params,
@@ -69,7 +70,12 @@ async function ChapterDetailsPage({
         <div className="p-4 flex flex-col md:flex-row items-center justify-between">
           <h2 className="text-2xl font-semibold mb-2">{chapter?.title}</h2>
           {purchase ? (
-            <div>{/* TODO: User Progress */}</div>
+            <CourseProgressButton
+              chapterId={chapterId}
+              courseId={courseId}
+              nextChapterId={nextChapter?.id}
+              isCompleted={!!userProgress?.isCompleted}
+            />
           ) : (
             <CourseEnrollButton courseId={courseId} price={course.price!} />
           )}
