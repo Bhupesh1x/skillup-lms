@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 
 import CourseSidebarItem from "./CourseSidebarItem";
+import CourseProgress from "@/components/shared/CourseProgress";
 
 type Props = {
   course: Course & {
@@ -36,6 +37,15 @@ async function CourseSidebar({ course, progress }: Props) {
     <div className="h-full borser-r shadow flex flex-col overscroll-y-auto min-h-screen">
       <div className="p-8 flex flex-col border-b">
         <h1 className="font-semibold mx-auto">{course.title}</h1>
+        {purchase && (
+          <div className="mt-10">
+            <CourseProgress
+              variant={progress === 100 ? "success" : "default"}
+              size="sm"
+              value={progress}
+            />
+          </div>
+        )}
       </div>
       <div className="flex flex-col w-full">
         {course.chapters?.map((chapter) => (

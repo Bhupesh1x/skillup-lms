@@ -51,13 +51,13 @@ async function CourseLayout({
 
   return (
     <div className="flex">
-      <nav className="h-[80px] md:pl-[25%] lg:pl-[17%] fixed inset-y-0 w-full">
+      <nav className="h-[80px] md:pl-[25%] lg:pl-[17%] fixed z-[999] inset-y-0 w-full">
         <CourseNavbar course={course} progress={progress} />
       </nav>
-      <aside className="hidden md:flex flex-col inset-y-0 z-50 md:w-[25%] lg:w-[17%]">
+      <aside className="hidden md:flex h-full md:w-[25%] lg:w-[17%] flex-col fixed inset-y-0 z-50">
         <CourseSidebar course={course} progress={progress} />
       </aside>
-      <main className="w-full md:w-[75%] lg:w-[83%] mt-[80px] p-6">
+      <main className="w-full md:w-[75%] lg:w-[83%] mt-[80px] p-6 ml-auto">
         {children}
       </main>
     </div>
