@@ -1,5 +1,9 @@
+import Link from "next/link";
+
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
+import { ArrowLeft, File } from "lucide-react";
 
 import { getChapter } from "@/actions/getChapter";
 import { Banner } from "@/components/shared/Banner";
@@ -8,7 +12,6 @@ import { Preview } from "@/components/shared/preview";
 
 import VideoPlayer from "./_components/VideoPlayer";
 import CourseEnrollButton from "./_components/CourseEnrollButton";
-import { File } from "lucide-react";
 import CourseProgressButton from "../../_components/CourseProgressButton";
 
 async function ChapterDetailsPage({
@@ -46,6 +49,13 @@ async function ChapterDetailsPage({
 
   return (
     <div>
+      <Link
+        className="flex items-center font-medium text-sm hover:opacity-75 transition mb-3"
+        href={`/search`}
+      >
+        <ArrowLeft className="h-4 w-4 mr-2" />
+        Back to courses search
+      </Link>
       {userProgress?.isCompleted && (
         <Banner variant="success" label="You already completed the chapter." />
       )}

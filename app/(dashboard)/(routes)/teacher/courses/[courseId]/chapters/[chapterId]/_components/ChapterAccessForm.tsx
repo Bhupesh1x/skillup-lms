@@ -10,17 +10,16 @@ import toast from "react-hot-toast";
 import { PencilIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+import { Chapter } from "@prisma/client";
+
 import {
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
-  FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Preview } from "@/components/shared/preview";
-import { Chapter } from "@prisma/client";
 import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {

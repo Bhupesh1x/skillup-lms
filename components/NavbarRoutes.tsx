@@ -32,7 +32,7 @@ function NavbarRoutes() {
         ) : (
           <Link href="/teacher/courses">
             <Button size="sm" variant="ghost">
-              Teacher Mode
+              Teach On Skillup
             </Button>
           </Link>
         )}

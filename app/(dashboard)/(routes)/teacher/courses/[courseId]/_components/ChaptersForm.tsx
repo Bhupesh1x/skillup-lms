@@ -32,7 +32,6 @@ const formSchema = z.object({
 
 function ChaptersForm({ initialData }: Props) {
   const [isCreating, setIsCreating] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false);
 
   const toogleCreating = () => setIsCreating((current) => !current);
 
