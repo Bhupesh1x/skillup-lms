@@ -28,7 +28,10 @@ function CourseCard({
 }: Props) {
   return (
     <Link href={`/courses/${id}`}>
-      <div className="group p-3 hover:!shadow-sm h-full overflow-hidden border rounded-lg transition">
+      <div
+        className="group p-3 hover:!shadow-sm h-full overflow-hidden border rounded-lg transition"
+        data-cy="course-lists"
+      >
         <div className="aspect-video overflow-hidden rounded-md relative w-full">
           <Image fill src={imageUrl} alt={title} className="object-cover" />
         </div>

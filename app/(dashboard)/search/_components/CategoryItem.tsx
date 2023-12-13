@@ -42,6 +42,7 @@ function CategoryItem({ label, value, icon: Icon }: Props) {
         isSelected && "text-sky-800 !border-sky-700 bg-sky-200/20"
       }`}
       type="button"
+      data-cy="category-item"
     >
       {Icon && <Icon size={20} />}
       <p className="truncate">{label}</p>
