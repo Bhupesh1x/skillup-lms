@@ -19,6 +19,14 @@ Key Features:
 - ORM using Prisma
 - MySQL database using Planetscale
 
+
+
+
+
+# Video demonstrating the key features:
+https://github.com/Bhupesh1x/skillup-lms/assets/78196557/8b21e567-ca7a-4f43-9521-36090c6f91bc
+
+
   
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
