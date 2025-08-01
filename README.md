@@ -1,6 +1,6 @@
-# SkillUp
+# SkillUp LMS
 
-**SkillUp** is a powerful, full-featured **Learning Management System (LMS)** built with modern web technologies like **Next.js**, **React**, **Tailwind Css**, **Prisma**, **Mux**, and **Stripe**. It allows instructors to create, manage, and monetize their courses, while giving students a seamless and engaging learning experience.
+**SkillUp LMS** is a powerful, full-featured **Learning Management System (LMS)** built with modern web technologies like **Next.js**, **React**, **Tailwind Css**, **Prisma**, **Mux**, and **Stripe**. It allows instructors to create, manage, and monetize their courses, while giving students a seamless and engaging learning experience.
 
 Whether you're a developer exploring advanced LMS architecture or an educator launching your online course platform, SkillUp offers a modular, scalable, and production-ready solution with all essential functionalities.
 
